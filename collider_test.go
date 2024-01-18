@@ -31,7 +31,7 @@ func TestLoop(t *testing.T) {
 		hashStr := hex.EncodeToString(hash[:])
 		return gstr.HasPrefix(hashStr, "000000")
 	}, func(speedString string) {
-		g.Log().Debugf(ctx, speedString)
+		g.Log().Debug(ctx, speedString)
 	}, math.Pow(16, 6), 0, 0xffffff, 1*time.Second)
 
 	result := collide.Collide(ctx)
@@ -62,7 +62,7 @@ func TestRangeSuccess(t *testing.T) {
 		hashStr := hex.EncodeToString(hash[:])
 		return gstr.HasPrefix(hashStr, "000000")
 	}, func(speedString string) {
-		g.Log().Debugf(ctx, speedString)
+		g.Log().Debug(ctx, speedString)
 	}, math.Pow(16, 6), 0, 0xffffff, 1*time.Second)
 
 	result := collide.Collide(ctx)
@@ -93,7 +93,7 @@ func TestRangeFailed(t *testing.T) {
 		hashStr := hex.EncodeToString(hash[:])
 		return gstr.HasPrefix(hashStr, "000000")
 	}, func(speedString string) {
-		g.Log().Debugf(ctx, speedString)
+		g.Log().Debug(ctx, speedString)
 	}, math.Pow(16, 6), 0, 0xffffff, 1*time.Second)
 
 	result := collide.Collide(ctx)

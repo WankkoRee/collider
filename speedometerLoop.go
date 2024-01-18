@@ -38,6 +38,18 @@ func (c *Collider[Seed]) speedometerLoop() {
 				estimate.String(),
 			)
 
+			if cacheRate := float64(len(c.seedChan)) / float64(c.maxSeedCache); cacheRate <= 0.05 {
+				speedString += fmt.Sprintf(
+					",\t请优化generator效率, 当前缓存率 %.2f%%",
+					cacheRate*100,
+				)
+			} else if cacheRate >= 0.95 {
+				speedString += fmt.Sprintf(
+					",\t请优化checker效率, 当前缓存率 %.2f%%",
+					cacheRate*100,
+				)
+			}
+
 			c.speedometer(speedString)
 		}
 	}

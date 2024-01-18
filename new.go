@@ -14,7 +14,7 @@ func New[Seed any](
 
 	estimateCollisions float64,
 	threads int,
-	maxInputCache uint64,
+	maxSeedCache uint64,
 	meterInterval time.Duration,
 ) (collider Collider[Seed]) {
 	collider = Collider[Seed]{}
@@ -31,7 +31,7 @@ func New[Seed any](
 			collider.threads-- // 为主线程保留性能
 		}
 	}
-	collider.maxInputCache = maxInputCache
+	collider.maxSeedCache = maxSeedCache
 	collider.meterInterval = meterInterval
 
 	return

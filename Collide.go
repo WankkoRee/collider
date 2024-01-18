@@ -9,7 +9,7 @@ import (
 func (c *Collider[Seed]) Collide(ctx context.Context) *Seed {
 	c.finished, c.finish = context.WithCancel(ctx)
 	c.colliders = sync.WaitGroup{}
-	c.seedChan, c.resultChan = make(chan Seed, c.maxInputCache), make(chan Seed, c.threads)
+	c.seedChan, c.resultChan = make(chan Seed, c.maxSeedCache), make(chan Seed, c.threads)
 
 	c.startTime, c.lastTime = time.Now(), time.Now()
 
